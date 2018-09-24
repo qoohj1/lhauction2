@@ -1,0 +1,138 @@
+  <div class="mid mid2" style="height:1472px">
+    <div class="bottom">
+      <div class="locate wrap">
+        <span class="content"><?=$navi4_1?></span>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="menu">
+        <div class="nav buy">
+          <div class="tit cur">
+            <a href="<?=$home?>buy"><?=$subnavi3?></a>
+          </div>
+        </div>
+      </div>
+      <div class="container3" style="border:0">
+        <?php if ($curLang === 'tc'): ?>
+            <div class="up">
+                <img src="<?php echo $buy->banner; ?>" alt="">
+                <p><?php echo $buy->des_tc; ?></p>
+            </div>
+            <div class="down">
+                <div class="row">
+                    <div class="block">
+                        <a target="_blank" href="/public/pdf/staticpage/Paddle%20registration%20Form%2020171018(4).pdf">
+                            <div class="img"><img src="/www/views/static/img/xcjt2.png" alt=""></div>
+                            <div class="tit"><span>現場競投</span></div>
+                            <div class="download"><span>點擊下載：拍賣投標牌子登記表</span></div>
+                        </a>
+                    </div>
+                    <div class="block">
+                        <a target="_blank" href="/public/pdf/staticpage/Absentee%20Bid%20Form%2020171018(1).pdf">
+                            <div class="img"><img src="/www/views/static/img/wtjt2.png" alt=""></div>
+                            <div class="tit"><span>委託競投</span></div>
+                            <div class="download"><span>點擊下載：委託競投表格</span></div>
+                        </a>
+                    </div>
+                    <div class="block" style="margin:0px">
+                        <a target="_blank" href="/public/pdf/staticpage/Auction10_%E6%A2%9D%E6%AC%BE_%E4%B8%AD.pdf">
+                            <div class="img"><img src="/www/views/static/img/wljt2.png" alt=""></div>
+                            <div class="tit"><span>競投者通知書</span></div>
+                            <div class="download"><span>點擊下載：競投者通知書</span></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="wsjt">
+                    <div class="title">網上競投 （請預早進行網上登記）</div>
+                    <div class="row">
+                        <?php if($buy->web_pic1): ?>
+                            <div class="block">
+                                <div class="img"><a target="_blank" href="<?php echo $buy->web_href1; ?>"><img src="<?php echo $buy->web_pic1; ?>" alt=""></a></div>
+                                <div class="tit"><a target="_blank" href="<?php echo $buy->web_href1; ?>"><span><?php echo $buy->web_t1_tc; ?></span></a></div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if($buy->web_pic2): ?>
+                        <div class="block">
+                            <div class="img"><a target="_blank" href="<?php echo $buy->web_href2; ?>"><img src="<?php echo $buy->web_pic2; ?>" alt=""></a></div>
+                            <div class="tit"><a target="_blank" href="<?php echo $buy->web_href2; ?>"><span><?php echo $buy->web_t2_tc; ?></span></a></div>
+                        </div>
+                        <?php endif; ?>
+                        <?php if($buy->web_pic3): ?>
+                        <div class="block">
+                            <div class="img"><a target="_blank" href="<?php echo $buy->web_href3; ?>"><img src="<?php echo $buy->web_pic3; ?>" alt=""></a></div>
+                            <div class="tit"><a target="_blank" href="<?php echo $buy->web_href3; ?>"><span><?php echo $buy->web_t3_tc; ?></span></a></div>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+
+                </div>
+            </div>
+          <?php else: ?>
+            <div class="up">
+                <img src="<?php echo $buy->banner; ?>" alt="">
+                <p><?php echo $buy->des_en; ?></p>
+            </div>
+            <div class="down">
+                <div class="row">
+                    <div class="block">
+                        <div class="img"><img src="/www/views/static/img/xcjt.png" alt=""></div>
+                        <div class="tit"><span>Floorbidder</span></div>
+                        <div class="download"><a target="_blank" href="/public/pdf/staticpage/Paddle%20registration%20Form%2020171018.pdf"><span>Download:Paddle registration Form</span></a></div>
+                    </div>
+                    <div class="block">
+                        <div class="img"><img src="/www/views/static/img/wtjt.png" alt=""></div>
+                        <div class="tit"><span>Absentee Bidder</span></div>
+                        <div class="download"><a target="_blank" href="public/pdf/staticpage/Absentee%20Bid%20Form%2020171018.pdf"><span>Donwload:Absentee Bid Form</span></a></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="block">
+                        <div class="img"><img src="/www/views/static/img/wljt.png" alt=""></div>
+                        <div class="tit"><span>Notice to Bidders</span></div>
+                        <div class="download"><a target="_blank" href="/public/pdf/staticpage/Auction10_%E6%A2%9D%E6%AC%BE_%E8%8B%B1.pdf"><span>Donwload:Notice to Bidders</span></a></div>
+                    </div>
+                </div>
+                <div class="wsjt">
+                    <div class="title">Online Bidder (please register before the auction date)</div>
+                    <div class="row">
+                        <?php if($buy->web_pic1): ?>
+                            <div class="block">
+                                <div class="img"><a target="_blank" href="<?php echo $buy->web_href1; ?>"><img src="<?php echo $buy->web_pic1; ?>" alt=""></a></div>
+                                <div class="tit"><a target="_blank" href="<?php echo $buy->web_href1; ?>"><span><?php echo $buy->web_t1_tc; ?></span></a></div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if($buy->web_pic2): ?>
+                        <div class="block">
+                            <div class="img"><a target="_blank" href="<?php echo $buy->web_href2; ?>"><img src="<?php echo $buy->web_pic2; ?>" alt=""></a></div>
+                            <div class="tit"><a target="_blank" href="<?php echo $buy->web_href2; ?>"><span><?php echo $buy->web_t2_tc; ?></span></a></div>
+                        </div>
+                        <?php endif; ?>
+                        <?php if($buy->web_pic3): ?>
+                        <div class="block">
+                            <div class="img"><a target="_blank" href="<?php echo $buy->web_href3; ?>"><img src="<?php echo $buy->web_pic3; ?>" alt=""></a></div>
+                            <div class="tit"><a target="_blank" href="<?php echo $buy->web_href3; ?>"><span><?php echo $buy->web_t3_tc; ?></span></a></div>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+
+                </div>
+            </div>
+          <?php endif; ?>
+      </div>
+    </div>
+
+
+  </div>
+<script src="<?php echo $resource_url; ?>js/buy.js" charset="utf-8"></script>
+<script type="text/javascript">
+$('body').delegate('.down .block a', 'mouseenter', function(e) {
+    $(this).find('.tit').css('color','#d1494d')
+    $(this).find('.download').css('color','#337ab7')
+});
+$('body').delegate('.down .block a', 'mouseleave', function(e) {
+    $(this).find('.tit').css('color','black')
+    $(this).find('.download').css('color','black')
+});
+
+</script>

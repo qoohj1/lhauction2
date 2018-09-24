@@ -1,0 +1,230 @@
+  <div class="mid mid2" style="height:2000px">
+    <div class="bottom">
+      <div class="locate wrap">
+        <span class="content"><?=$navi6?> > <?=$subnavi8?></span>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="menu">
+        <div class="nav about">
+          <div class="tit">
+            <a href="<?=$home?>about"><?=$subnavi7?></a>
+          </div>
+        </div>
+        <div class="nav contact">
+          <div class="tit cur">
+            <a href="<?=$home?>contact"><?=$subnavi8?></a>
+          </div>
+        </div>
+      </div>
+      <div class="container3" style="border:0">
+        <div id="map" style="width:880px; height:540px; border:1px solid #5C6672;"></div>
+        <?php if ($curLang === 'tc'): ?>
+            <div id="cataRequest">
+                <h4>如欲索取拍品圖錄，請填寫以下表格。我們會盡快與閣下聯絡並作進一步安排。</h4>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="sr-only" for="name">姓名</label>
+                      <input type="text" class="form-control" id="name" placeholder="姓名">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="sr-only" for="email">電子郵箱</label>
+                      <input type="email" class="form-control" id="email" placeholder="電子郵箱">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="sr-only" for="tel">聯繫電話</label>
+                      <input type="text" class="form-control" id="phone" placeholder="聯繫電話">
+                    </div>
+                  </div>
+                  <?php foreach ($cata as $v): ?>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" value="<?php echo $v['name_tc']; ?>"> <?php echo $v['name_tc']; ?>
+                      </label>
+                  <?php endforeach; ?>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <button type="submit" id="submit" class="btn btn-primary">傳送</button>
+                    </div>
+                  </div>
+            </div>
+            <div class="contactcontent">
+                <div class="row">
+                    <div class="block">
+                        <div class="icon">
+                            <img src="/www/views/static/img/icon_fixed_position.png" alt="">
+                            <div class="i">公司地址</div>
+                        </div>
+                        <div class="info" style="text-align: center;font-size: 18px;padding-top: 5px;line-height: 43px;">香港 尖沙咀<br>梳士巴利道3號<br>星光行12樓 1207-1208室</div>
+                    </div>
+                    <div class="block">
+                        <div class="icon">
+                            <img src="/www/views/static/img/icon_contact.png">
+                            <div class="i">聯繫方式</div>
+                        </div>
+                        <div class="info">
+                            <div class="lb">
+                                <span class="label">電郵地址</span><br>
+                                <span class="txt">auction@lh-hk.com</span>
+                            </div>
+                            <div class="lb">
+                                <span class="label">傳真號碼</span><br>
+                                <span class="txt">+852   2311 9166</span>
+                            </div>
+                            <div class="lb">
+                                <span class="label">電話號碼</span><br>
+                                <span class="txt">+852  3168 2192 (香港)<br>+86 158 1858 1118 (中國)</span>
+                            </div>
+                            <div class="lb">
+                                <span class="label">網站</span><br>
+                                <span class="txt">www.lhauction.com.hk</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="block">
+                        <div class="icon">
+                            <img src="/www/views/static/img/icon_weixin.png">
+                            <div class="i">微信公眾帳號</div>
+                        </div>
+                        <div class="info weixin">
+                            ID: lh_auction<br>
+                            <img src="/www/views/static/img/weixin.png" alt="">
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="icon">
+                            <img src="/www/views/static/img/icon_custom_service.png">
+                            <div class="i">微信客服帳號</div>
+                        </div>
+                        <div class="info weixin">
+                            ID: lhauction<br>
+                            <img src="/www/views/static/img/kefu.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          <?php else: ?>
+            <!-- <?php echo $contact1->content_en; ?> -->
+            <div id="cataRequest">
+                <h4>Thank you for your interest in our Auction. If you would like to get our Auction Catalogue, please fill out the form below. We will contact you soon.</h4>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="sr-only" for="name">name</label>
+                      <input type="text" class="form-control" id="name" placeholder="Name">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="sr-only" for="email">email</label>
+                      <input type="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="sr-only" for="tel">phone</label>
+                      <input type="text" class="form-control" id="phone" placeholder="Phone">
+                    </div>
+                  </div>
+                  <?php foreach ($cata as $v): ?>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" value="<?php echo $v['name_en']; ?>"> <?php echo $v['name_en']; ?>
+                      </label>
+                  <?php endforeach; ?>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <button id="submit" class="btn btn-primary">Send</button>
+                    </div>
+                  </div>
+                  <div class="contact">
+
+                  </div>
+            </div>
+            <div class="contactcontent">
+                <div class="row">
+                    <div class="block">
+                        <div class="icon">
+                            <img src="/www/views/static/img/icon_fixed_position.png" alt="">
+                            <div class="i">ADDRESS</div>
+                        </div>
+                        <div class="info" style="text-align:center;font-size:20px;padding-top:20px;">Unit 1207-1208<br>12/F Star House<br>3 Salisbury Road<br>Tsim Sha Tsui, KLN</div>
+                    </div>
+                    <div class="block">
+                        <div class="icon">
+                            <img src="/www/views/static/img/icon_contact.png">
+                            <div class="i">CONTACT</div>
+                        </div>
+                        <div class="info">
+                            <div class="lb">
+                                <span class="label">EMAIL</span><br>
+                                <span class="txt">auction@lh-hk.com</span>
+                            </div>
+                            <div class="lb">
+                                <span class="label">FAX</span><br>
+                                <span class="txt">+852   2311 9166</span>
+                            </div>
+                            <div class="lb">
+                                <span class="label">TEL</span><br>
+                                <span class="txt">+852  3168 2192 （香港）<br>+86 158 1858 1118（中國）</span>
+                            </div>
+                            <div class="lb">
+                                <span class="label">WEBSITE</span><br>
+                                <span class="txt">www.lhauction.com.hk</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="block">
+                        <div class="icon">
+                            <img src="/www/views/static/img/icon_weixin.png">
+                            <div class="i">WECHAT PUBLIC PLATFORM</div>
+                        </div>
+                        <div class="info weixin">
+                            ID: lh_auction<br>
+                            <img src="/www/views/static/img/weixin.png" alt="">
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="icon">
+                            <img src="/www/views/static/img/icon_custom_service.png">
+                            <div class="i">WECHAT CUSTOMER SERVICE</div>
+                        </div>
+                        <div class="info weixin">
+                            ID: lhauction<br>
+                            <img src="/www/views/static/img/kefu.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <?php endif; ?>
+
+      </div>
+    </div>
+
+
+  </div>
+  <script>
+    function initMap() {
+      var uluru = {lat: 22.294715099827147, lng: 114.16928887367249};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 17,
+        center: uluru
+      });
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+      });
+    }
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCalpFBYzyuaPac83svQNjQg-NqpoaOJfs&callback=initMap">
+  </script>
+  <script src="<?php echo $resource_url; ?>js/contact.js"></script>

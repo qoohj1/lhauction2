@@ -1,0 +1,22 @@
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function(){
+        try {
+            var urlhash = window.location.hash;
+            if (!urlhash.match("fromapp")){
+                //移动端
+                if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i))){
+                    console.log(window.location.href);
+                    window.location.href='/home/wap';
+                //pc端
+                }else{
+                    console.log(window.location.href);
+                    window.location.href='/home/pc';
+                }
+            }
+        }catch(err){}
+    });
+</script>

@@ -1,0 +1,147 @@
+<link rel="stylesheet" type="text/css" href="<?php echo $resource_url; ?>/css/uploadifive.css">
+<!-- <button type="button" class="btn btn-sm btn-primary js_addbanner" data-toggle="modal" data-target="#addModal" style="margin-bottom:10px;">新增</button> -->
+<div class="table-responsive">
+    <table class="table table-bordered table-hover js_table">
+    </table>
+</div>
+<style media="screen">
+    .modal-dialog{
+        width: 1000px;
+    }
+</style>
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group" style="display:none">
+                        <label for="id" style="text-align:left" class="col-sm-1 control-label">编号</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static js_id"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label style="text-align:left" for="menuTree" class="col-sm-1 control-label"><span class="required">*</span>類別</label>
+                        <div class="col-sm-8">
+                            <select class="form-control js_menuTree" style="position:absolute;left:0px">
+                                <option value="0">/</option>
+                                <?php foreach ($pic_clazz as $list): ?>
+                                <?php
+                                $prefix = '';
+                                while($list['level'] >= 0) {
+                                    $prefix .= '|--';
+                                    $list['level']--;
+                                };
+                                ?>
+                                <?php if(strlen($prefix)>3):?>
+                                    <option value="<?=$list['id']?>"><?=$prefix?><?=$list['name_en']?>(<?=$list['name_tc']?>)</option>
+                                <?php else: ?>
+                                    <option disabled="disabled" value="<?=$list['id']?>"><?=$prefix?><?=$list['name_en']?>(<?=$list['name_tc']?>)</option>
+                                <?php endif;?>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="menuTree" class="col-sm-1 control-label">拍品搜索</label>
+                        <div class="col-sm-9">
+                            <select class="form-control js_add_pc1" style="position:absolute;left:0px">
+
+                                <option value="0">/</option>
+                                <?php foreach ($pic_clazz as $list): ?>
+                                <?php
+                                $prefix = '';
+                                while($list['level'] >= 0) {
+                                    $prefix .= '|--';
+                                    $list['level']--;
+                                };
+                                ?>
+                                <?php if(strlen($prefix)>3):?>
+                                    <option value="<?=$list['id']?>"><?=$prefix?><?=$list['name_en']?>(<?=$list['name_tc']?>)</option>
+                                <?php else: ?>
+                                    <option disabled="disabled" value="<?=$list['id']?>"><?=$prefix?><?=$list['name_en']?>(<?=$list['name_tc']?>)</option>
+                                <?php endif;?>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                    </div> -->
+                    <table class="table table-bordered">
+                        <tr><th class="col-md-1" style="text-align:left">編號</th><th class="col-md-6">拍品LOT</th><th>封面圖</th></tr>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <select class="form-control js_add_pc1" class=".span4">
+                                    <option value="0">/</option>
+                                </select>
+                            </td>
+                            <td id="pc_img1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>
+                                <select class="form-control js_add_pc2" class=".span4">
+                                    <option value="0">/</option>
+                                </select>
+                            </td>
+                            <td id="pc_img2">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>
+                                <select class="form-control js_add_pc3" class=".span4">
+                                    <option value="0">/</option>
+                                </select>
+                            </td>
+                            <td id="pc_img3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>
+                                <select class="form-control js_add_pc4" class=".span4">
+                                    <option value="0">/</option>
+                                </select>
+                            </td>
+                            <td id="pc_img4">
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="form-group">
+                        <label for="sort" style="text-align:left" class="col-sm-2 control-label">排序（数字越大越靠前）</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control js_add_sort" id="sort" placeholder="排序（数字越大越靠前）" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="show" style="text-align:left" class="col-sm-2 control-label">狀態</label>
+                        <div class="col-sm-7">
+                        <select id="status" class="form-control js_add_status" class=".span4">
+                            <option value="1">show</option>
+                            <option value="0">hide</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="alert alert-warning alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Warning: </strong> 点击保存前请检查信息无误，如有需要请先备份！
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary js_saveBtn">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="<?php echo $resource_url; ?>js/jquery.uploadifive.js"></script>
+<script src="<?php echo $resource_url; ?>js/system/indexpc.js"></script>

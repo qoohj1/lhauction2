@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="<?php echo $resource_url; ?>css/uploadifive.css">
+<link rel="stylesheet" href="<?php echo $resource_url; ?>libs/summernote/summernote.css">
+<style media="screen">
+.prev-banner,.prev-webpic1,.prev-webpic2,.prev-webpic3 {
+    max-width: 400px;
+    max-height: 300px;
+    display: block;
+    margin: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.prev-frame {
+    display: inline-block;
+    position: relative;
+}
+.prev-frame em {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    background: red;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color: #fff;
+    font-weight: 1000;
+    cursor: pointer;
+}
+
+</style>
+<div class="form-group">
+    <label for="title">欄目標題（tc）</label>
+    <input type="text" disabled=disable class="form-control" id="name_tc" placeholder="请输入標題（tc）"  value="<?php echo $info['name_tc']; ?>">
+</div>
+<div class="form-group">
+    <label for="title">欄目標題（en）</label>
+    <input type="text" disabled=disable class="form-control" id="name_en" placeholder="请输入標題（en）" value="<?php echo $info['name_en']; ?>">
+</div>
+<div class="form-group">
+    <label for="banner">首圖</label>
+    <input id="banner" type="file" multiple="false" value="" />
+    <div class="js_bannerPrevArea"></div>
+</div>
+<div class="form-group">
+    <label for="des_tc">描述（tc）</label>
+    <textarea class="form-control" id="des_tc"><?php echo $info['des_tc']; ?></textarea>
+</div>
+<div class="form-group">
+    <label for="des_en">描述（en）</label>
+    <textarea class="form-control" id="des_en"><?php echo $info['des_en']; ?></textarea>
+</div>
+<div class="form-group">
+    <label for="web_pic1">圖1</label>
+    <input id="web_pic1" type="file" multiple="false" value="" />
+    <div class="js_web_pic1PrevArea"></div>
+</div>
+<div class="form-group">
+    <label for="web_t1_tc">標題1（tc）</label>
+    <input type="text" class="form-control" id="web_t1_tc" placeholder="请输入標題1（tc）" value="<?php echo $info['web_t1_tc']; ?>">
+</div>
+<div class="form-group">
+    <label for="web_t1_en">標題1（en）</label>
+    <input type="text" class="form-control" id="web_t1_en" placeholder="请输入標題1（en）"  value="<?php echo $info['web_t1_en']; ?>">
+</div>
+<div class="form-group">
+    <label for="web_href1">url1</label>
+    <input type="text" class="form-control" id="web_href1" placeholder="请输入url1"  value="<?php echo $info['web_href1']; ?>">
+</div>
+<div class="form-group">
+    <label for="web_pic2">圖2</label>
+    <input id="web_pic2" type="file" multiple="false" value="" />
+    <div class="js_web_pic2PrevArea"></div>
+</div>
+<div class="form-group">
+    <label for="web_t2_tc">標題2（tc）</label>
+    <input type="text" class="form-control" id="web_t2_tc" placeholder="请输入標題2（tc）" value="<?php echo $info['web_t2_tc']; ?>">
+</div>
+<div class="form-group">
+    <label for="web_t2_en">標題2（en）</label>
+    <input type="text" class="form-control" id="web_t2_en" placeholder="请输入標題2（en）"  value="<?php echo $info['web_t2_en']; ?>">
+</div>
+<div class="form-group">
+    <label for="web_href2">url2</label>
+    <input type="text" class="form-control" id="web_href2" placeholder="请输入url2"  value="<?php echo $info['web_href2']; ?>">
+</div>
+<div class="form-group">
+    <label for="web_pic3">圖3</label>
+    <input id="web_pic3" type="file" multiple="false" value="" />
+    <div class="js_web_pic3PrevArea"></div>
+</div>
+<div class="form-group">
+    <label for="web_t3_tc">標題3（tc）</label>
+    <input type="text" class="form-control" id="web_t3_tc" placeholder="请输入標題3（tc）" value="<?php echo $info['web_t3_tc']; ?>">
+</div>
+<div class="form-group">
+    <label for="web_t3_en">標題3（en）</label>
+    <input type="text" class="form-control" id="web_t3_en" placeholder="请输入標題3（en）"  value="<?php echo $info['web_t3_en']; ?>">
+</div>
+<div class="form-group">
+    <label for="web_href3">url3</label>
+    <input type="text" class="form-control" id="web_href3" placeholder="请输入url3"  value="<?php echo $info['web_href3']; ?>">
+</div>
+
+<input type="hidden" class="js_update_banner" value='<?php echo $info['banner']; ?>'>
+<input type="hidden" class="js_update_web_pic1" value='<?php echo $info['web_pic1']; ?>'>
+<input type="hidden" class="js_update_web_pic2" value='<?php echo $info['web_pic2']; ?>'>
+<input type="hidden" class="js_update_web_pic3" value='<?php echo $info['web_pic3']; ?>'>
+
+<button type="submit" class="btn btn-primary js_submit">保存</button>
+
+<script src="<?php echo $resource_url; ?>js/jquery.uploadifive.js"></script>
+<script src="<?php echo $resource_url; ?>js/system/buying_update.js"></script>

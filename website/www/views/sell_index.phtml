@@ -1,0 +1,44 @@
+<div class="mid mid2" style="height:1472px">
+  <div class="bottom">
+    <div class="locate wrap">
+      <span class="content"><?=$navi4_2?></span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="menu">
+      <div class="nav sell">
+        <div class="tit cur">
+          <a href="<?=$home?>sell"><?=$subnavi4?></a>
+        </div>
+      </div>
+    </div>
+    <div class="container3" style="border:0">
+      <?php if ($curLang === 'tc'): ?>
+          <div class="sellcontent">
+              <div class="banner"><img src="<?php echo $sell->pic; ?>" alt=""></div>
+              <?php echo $sell->content_tc ?>
+              <!-- <div class="tit"><span>徵集日程</span></div>
+              <div class="date"><span>馬來西亞吉隆坡站 – 2017年12月8日-12日</span><br><span>中國深圳站 – 2017年12月14日-18日</span><br><span class="tips">更多行程敬請關注仕宏拍賣官方網站或微信公眾號</span></div>
+              <div class="content">
+                  <div class="proj">徵集項目：<br>古董名茶 | 茶具花器 | 中國書畫 | 名人手跡 | 古董珍玩 | 沉香奇楠 |</div>
+                  <p>仕宏拍賣自2013年成立至今，成為香港藏茶界知名的專業古董名茶葉拍賣公司，曾創下以逾1,000萬港元成交一筒百年藍標宋聘圓茶的紀錄；於2017年春季拍賣之古董級普洱茶專場總成交價破3,800萬港元，為茶葉拍賣市場立下彪炳紀錄。希望藉本次現場徵集活動，與藏家增進溝通，推廣茶文化至全球各地。
+我們的專家團隊將會為您提供免費的估值服務。
+
+如欲參與或透過微信或電郵委託拍賣或諮詢，歡迎將委託拍賣珍藏品的資料、新舊狀況及相關圖片，連同個人聯絡資料（姓名、聯絡電話、電郵、微信號等）電郵至 auction@lh-hk.com ，或直接致電+852-3168 2192 / +86 158 1858 1118 洽談委託拍賣事宜，仕宏拍賣專家會為您提供免費估價及市場諮詢服務，歡迎廣大藏家踴躍參與。
+
+賣家亦可參閱拍賣目錄內的拍賣品委託合約或致電+852 3168 2192查詢有關詳情。</p>
+              </div> -->
+          </div>
+        <?php else: ?>
+          <div class="sellcontent">
+              <div class="banner"><img src="<?php echo $sell->pic; ?>" alt=""></div>
+              <?php echo $sell->content_en; ?>
+          </div>
+        <?php endif; ?>
+    </div>
+  </div>
+
+
+</div>
+<script src="<?php echo $resource_url; ?>js/buy.js" charset="utf-8"></script>

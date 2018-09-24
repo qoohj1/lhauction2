@@ -1,0 +1,352 @@
+<style media="screen">
+    .row{margin-bottom: 10px}
+    .modal-dialog{width: 635px;top:100px}
+    #getPics{position: relative;top:-2px;left: 10px;}
+    #getPics,#myModal{font-family: '微软雅黑' !important;}
+</style>
+  <div class="mid">
+    <div class="bottom">
+      <div class="locate wrap">
+        <span class="content"><?=$navi3?> >
+          <?php if(count($catalogueParent)>0):?>
+            <?php if ($curLang === 'tc'): ?>
+              <?php echo $catalogueParent->name_tc; ?>
+            <?php else: ?>
+              <?php echo $catalogueParent->name_en; ?>
+            <?php endif; ?>
+        <?php endif;?>
+        </span>
+        <?php if ($curLang === 'tc'): ?>
+            <button id="getPics" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#myModal">
+            	索取圖錄
+            </button>
+            <!-- 模态框（Modal） -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            	<div class="modal-dialog">
+            		<div class="modal-content">
+            			<div class="modal-header">
+            				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            					&times;
+            				</button>
+            				<h4 class="modal-title" id="myModalLabel">
+                                如欲索取拍品圖錄，請填寫以下表格。我們會盡快與閣下聯絡並作進一步安排。
+            				</h4>
+            			</div>
+            			<div class="modal-body">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label class="sr-only" for="name">姓名</label>
+                                <input type="text" class="form-control" id="name" placeholder="姓名">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label class="sr-only" for="email">電子郵箱</label>
+                                <input type="email" class="form-control" id="email" placeholder="電子郵箱">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label class="sr-only" for="tel">聯繫電話</label>
+                                <input type="text" class="form-control" id="phone" placeholder="聯繫電話">
+                              </div>
+                            </div>
+
+                            <?php foreach ($cata as $v): ?>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" value="<?php echo $v['name_tc']; ?>"> <?php echo $v['name_tc']; ?>
+                                </label>
+                            <?php endforeach; ?>
+
+            			</div>
+            			<div class="modal-footer">
+            				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+            				</button>
+            				<button type="button" class="btn btn-danger" id="submit">
+            					傳送
+            				</button>
+            			</div>
+            		</div><!-- /.modal-content -->
+            	</div><!-- /.modal -->
+            </div>
+        <?php else: ?>
+            <button id="getPics" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#myModal">
+            	CATALOGUE REQUEST
+            </button>
+            <!-- 模态框（Modal） -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            	<div class="modal-dialog">
+            		<div class="modal-content">
+            			<div class="modal-header">
+            				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            					&times;
+            				</button>
+            				<h4 class="modal-title" id="myModalLabel">
+                                Thank you for your interest in our Auction. If you would like to get our Auction Catalogue, please fill out the form below. We will contact you soon.
+            				</h4>
+            			</div>
+            			<div class="modal-body">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label class="sr-only" for="name">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Name">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label class="sr-only" for="email">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Email">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label class="sr-only" for="tel">Phone</label>
+                                <input type="text" class="form-control" id="phone" placeholder="Phone">
+                              </div>
+                            </div>
+                            <?php foreach ($cata as $v): ?>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" value="<?php echo $v['name_en']; ?>"> <?php echo $v['name_en']; ?>
+                                </label>
+                            <?php endforeach; ?>
+
+            			</div>
+            			<div class="modal-footer">
+            				<button type="button" class="btn btn-default" data-dismiss="modal">close
+            				</button>
+            				<button type="button" class="btn btn-danger" id="submit">
+            					send
+            				</button>
+            			</div>
+            		</div><!-- /.modal-content -->
+            	</div><!-- /.modal -->
+            </div>
+
+        <?php endif; ?>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="menu2">
+
+        <?php if ($curLang === 'tc'): ?>
+          <?php foreach ($categorylist as $category): ?>
+            <div class="nav" data-aid="<?php echo $category['id']?>">
+              <div class="tit">
+                <?php echo $category['name_tc']?>
+              </div>
+              <?php if(isset($category['sub_nav'])): ?>
+                <?php foreach ($category['sub_nav'] as $subnav): ?>
+                  <div class="sub-navi">
+                    <a href="<?=$home?>catalogue?cid=<?php echo $subnav['id']?>" class="sub-tit" data-cid="<?php echo $subnav['id']?>">
+                      <?php echo $subnav['name_tc']?>
+                    </a>
+                  </div>
+                <?php endforeach; ?>
+              <?php endif; ?>
+            </div>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <?php foreach ($categorylist as $category): ?>
+            <div class="nav" data-aid="<?php echo $category['id']?>">
+              <div class="tit">
+                <?php echo $category['name_en']?>
+              </div>
+              <?php if(isset($category['sub_nav'])): ?>
+                <?php foreach ($category['sub_nav'] as $subnav): ?>
+                  <div class="sub-navi">
+                    <a href="<?=$home?>catalogue?cid=<?php echo $subnav['id']?>" class="sub-tit" data-cid="<?php echo $subnav['id']?>">
+                      <?php echo $subnav['name_en']?>
+                    </a>
+                  </div>
+                <?php endforeach; ?>
+              <?php endif; ?>
+            </div>
+          <?php endforeach; ?>
+        <?php endif; ?>
+<!--
+        <div class="nav">
+          <div class="tit">
+            第十屆-2017秋拍
+          </div>
+        </div>
+        <div class="nav cur">
+          <div class="tit">
+            第九屆-2017春拍
+          </div>
+          <div class="sub-nav">
+            <div class="sub-navi cur">
+              <a class="sub-tit" href=""><span>御養尚品 - 補品及佳釀專場</span></a>
+              <a class="download" href=""></a>
+            </div>
+            <div class="sub-navi">
+              <a class="sub-tit" href="#"><span>御養尚品 - 補品及佳釀專場</span></a>
+              <a class="download" href=""></a>
+            </div>
+          </div>
+        </div>
+        <div class="nav">
+          <div class="tit">
+            第十屆-2017秋拍
+          </div>
+        </div> -->
+      </div>
+      <div class="container container2">
+          <?php if(count($notice)>0):?>
+            <?php if ($curLang === 'tc'): ?>
+              <div class="notice">
+                <a href="<?php echo $notice[0]['url_tc']?>"><span><?php echo $notice[0]['content_tc']?></span></a>
+              </div>
+            <?php else: ?>
+              <div class="notice">
+                <a href="<?php echo $notice[0]['url_en']?>"><span><?php echo $notice[0]['content_en']?></span></a>
+              </div>
+            <?php endif; ?>
+          <?php endif;?>
+
+
+        <div class="performance">
+          <?php if(count($catalogueParent)>0):?>
+            <div class="top">
+              <div class="wrap2">
+                <div class="tit">
+                  <?php if ($curLang === 'tc'): ?>
+                    <?php echo $catalogueParent->name_tc; ?>
+                  <?php else: ?>
+                    <?php echo $catalogueParent->name_en; ?>
+                  <?php endif; ?>
+                </div>
+                <?php if(!empty($catalogueParent->pdf)):?>
+                  <div class="pdf">
+                      <a target="_blank" href="<?php echo $catalogueParent->pdf; ?>" class="download"></a>
+                  </div>
+                <?php endif; ?>
+              </div>
+            </div>
+          <?php endif;?>
+          <?php if ($curLang === 'tc'): ?>
+            <?php foreach ($catalogue['list'] as $k => $v): ?>
+              <div class="item">
+                <div class="info">
+                  <div class="wrap2">
+                    <div class="pic">
+                    <?php if(substr($v['pic'],0,8)==='/public/'):?>
+                      <?php if(strpos($v['thumb'],',')): ?>
+                        <a href="<?=$home?>catalogue/detail?id=<?php echo $v['id']?>">
+                          <img src="<?php echo strstr($v['thumb'], ',', TRUE) ?>" alt="">
+                        </a>
+                      <?php else: ?>
+                        <a href="<?=$home?>catalogue/detail?id=<?php echo $v['id']?>">
+                          <img src="<?php echo $v['thumb'] ?>" alt="">
+                        </a>
+                      <?php endif; ?>
+                  <?php elseif(strpos($v['pic'], '/img2/')):?>
+                        <?php if(strpos($v['pic'],',')): ?>
+                          <a href="<?=$home?>catalogue/detail?id=<?php echo $v['id']?>">
+                            <img src="<?php echo strstr(str_replace("/large/","/thumb/",$v['pic']), ',', TRUE) ?>" alt="">
+                          </a>
+                        <?php else: ?>
+                          <a href="<?=$home?>catalogue/detail?id=<?php echo $v['id']?>">
+                            <img src="<?php echo str_replace("/large/","/thumb/",$v['pic']) ?>" alt="">
+                          </a>
+                        <?php endif; ?>
+                    <?php else:?>
+                        <?php if(strpos($v['pic'],',')): ?>
+                          <a href="<?=$home?>catalogue/detail?id=<?php echo $v['id']?>">
+                            <img src="<?php echo strstr($v['pic'], ',', TRUE) ?>" alt="">
+                          </a>
+                        <?php else: ?>
+                          <a href="<?=$home?>catalogue/detail?id=<?php echo $v['id']?>">
+                            <img src="<?php echo $v['pic'] ?>" alt="">
+                          </a>
+                        <?php endif; ?>
+                    <?php endif;?>
+                    </div>
+                    <div class="detail">
+                      <div class="lot">LOT: <span class="no"><?php echo $v['num']; ?></span></div>
+                      <div class="name"><a href="<?=$home?>catalogue/detail?id=<?php echo $v['id']?>"><?php echo $v['title_tc']; ?></a></div>
+                      <div class="estimated">
+                        <?php if($v['prize_tc']): ?>
+                          成交價（含佣金）：HK$ <span class="money"><?php echo $v['prize_tc']; ?></span>
+                        <?php else: ?>
+                          估計價格：HK$ <span class="money"><?php echo $v['prize_en']; ?></span>
+                        <?php endif; ?>
+                      </div>
+                      <div class="instruction">
+                          <!-- 查看更多 -->
+                        <!-- <?php echo $v['descript_tc']; ?> -->
+                      </div>
+                    </div>
+                    <div class="more">
+                      <a href="<?=$home?>catalogue/detail?id=<?php echo $v['id']?>">查看更多</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          <?php else:?>
+            <?php foreach ($catalogue['list'] as $k => $v): ?>
+              <div class="item">
+                <div class="info">
+                  <div class="wrap2">
+                    <div class="pic">
+                        <?php if(substr($v['pic'],0,8)==='/public/'):?>
+                          <?php if(strpos($v['thumb'],',')): ?>
+                            <a href="<?=$home?>catalogue/detail?id=<?php echo $v['id']?>">
+                              <img src="<?php echo strstr($v['thumb'], ',', TRUE) ?>" alt="">
+                            </a>
+                          <?php else: ?>
+                            <a href="<?=$home?>catalogue/detail?id=<?php echo $v['id']?>">
+                              <img src="<?php echo $v['thumb'] ?>" alt="">
+                            </a>
+                          <?php endif; ?>
+                        <?php else:?>
+                            <?php if(strpos($v['pic'],',')): ?>
+                              <a href="<?=$home?>catalogue/detail?id=<?php echo $v['id']?>">
+                                <img src="<?php echo strstr($v['pic'], ',', TRUE) ?>" alt="">
+                              </a>
+                            <?php else: ?>
+                              <a href="<?=$home?>catalogue/detail?id=<?php echo $v['id']?>">
+                                <img src="<?php echo $v['pic'] ?>" alt="">
+                              </a>
+                            <?php endif; ?>
+                        <?php endif;?>
+                    </div>
+                    <div class="detail">
+                      <div class="lot">LOT: <span class="no"><?php echo $v['num']; ?></span></div>
+                      <div class="name"><a href="<?=$home?>catalogue/detail?id=<?php echo $v['id']?>"><?php echo $v['title_en']; ?></a></div>
+                      <div class="estimated">
+                        <?php if($v['prize_tc']): ?>
+                          PRICE (included premium):HK$ <span class="money"><?php echo $v['prize_tc']; ?></span>
+                        <?php else: ?>
+                          ESTIMATE PRICE：HK$ <span class="money"><?php echo $v['prize_en']; ?></span>
+                        <?php endif; ?>
+                      </div>
+                      <div class="instruction">
+                        <!-- <?php echo $v['descript_tc']; ?> -->
+                        <!-- read more -->
+                      </div>
+                    </div>
+                    <div class="more">
+                      <a href="<?=$home?>catalogue/detail?id=<?php echo $v['id']?>">Read More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          <?php endif;?>
+          </div>
+          <div id="pagelist">
+            <ul>
+              <?php echo $this->pagination->create_links();?>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+  </div>
+<script src="<?php echo $resource_url; ?>js/catalogue.js" charset="utf-8"></script>
+<script src="<?php echo $resource_url; ?>js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="<?php echo $resource_url; ?>js/ie10-viewport-bug-workaround.js"></script>
+<script src="<?php echo $resource_url; ?>js/contact.js"></script>

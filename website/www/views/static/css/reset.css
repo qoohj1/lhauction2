@@ -1,0 +1,64 @@
+@font-face {
+  font-family: 'Khangxi';
+  src: url('../ttf/Khangxi.eot');
+  src:
+    url('../ttf/Khangxi.eot?#font-spider') format('embedded-opentype'),
+    url('../ttf/Khangxi.woff') format('woff'),
+    url('../ttf/Khangxi7.ttf') format('truetype'),
+    url('../ttf/Khangxi.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* @font-face {
+    font-family: Khangxi;
+    src: url('../ttf/Khangxi7.ttf');
+} */
+body, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, ul, li, img, div, span {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body {
+    background: #f3f3f3;
+    color: #000;
+    font-size: 14px;
+    font-family: 微軟正黑體, 新細明體, arial, helvetica, sans-serif;
+}
+a {
+    color: #000;
+    display: inline;
+    text-decoration: none;
+}
+a:hover{
+    color: #000;
+}
+img {
+    border: none;
+    display: block;
+}
+em {
+    font-style: normal;
+}
+ol, ul, li {
+    /*list-style: none;*/
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+p {
+    word-wrap: break-word;
+}
+.clearfloat {
+    zoom: 1;
+}
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: '';
+    visibility: hidden;
+    height: 0;
+}
+.dn {
+    display: none;
+}

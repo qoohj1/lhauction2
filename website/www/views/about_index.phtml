@@ -1,0 +1,52 @@
+  <div class="mid mid2">
+    <div class="bottom">
+      <div class="locate wrap">
+        <span class="content"><?=$navi6?> > <?=$subnavi7?></span>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="menu">
+        <div class="nav about">
+          <div class="tit cur">
+            <a href="<?=$home?>about"><?=$subnavi7?></a>
+          </div>
+        </div>
+        <div class="nav contact">
+          <div class="tit">
+            <a href="<?=$home?>contact"><?=$subnavi8?></a>
+          </div>
+        </div>
+      </div>
+      <div class="container3" style="border:0">
+        <?php if ($curLang === 'tc'): ?>
+            <div class="aboutcontent">
+                <img src="<?php echo $about->pic[0]; ?>" alt="">
+                <?php echo $about->content_tc; ?>
+                <!-- <div class="tit">
+                    關於仕宏拍賣有限公司
+                </div>
+                <div class="txt">
+                    <p>以香港為基地的仕宏拍賣有限公司成立於2013年，秉承「仕以高品而宏」之專業態度及宗旨，力求為收藏興趣愈益多元化的藏家們提供炙手可熱的藏品，將旗下拍賣活動打造成為收藏家們搜尋頂級珍品的良機盛會。<br><br>作為亞洲區舉辦專業相機拍賣的先鋒及佼佼者，仕宏第三屆珍稀相機拍賣會總成交額逾3,900萬港元，在短短兩年間已躍升為全球同類專門相機拍賣行的第二位。<br><br>於2014年開始更引入中國書畫、奇楠沉香、古董普洱名茶及御器等專場拍賣，成為香港藏茶界知名的專業古董名茶葉拍賣公司，曾創下以逾1,000萬港元成交一筒百年藍標宋聘圓茶的紀錄；於2017年春季拍賣之古董級普洱茶專場總成交價破3,800萬港元，為茶葉拍賣市場立下彪炳紀錄。在提供專業拍賣服務的同時，也積極投身於相關文化的發展及傳播中。以多層次的管道向大中華地區提供優質藏品及國際尖端資訊，遵循「高品質，高品味，高誠信度」的服務原則，為廣大藏家打造「可宏高仕之志」的不二平臺。<br><br><br>仕宏拍賣每年於香港舉行2次大型拍賣會，除親臨拍賣會場、電話競投及信件、傳真、電子郵件委託競投外，競投者亦可在世界各地於網上同步參與競投。</p>
+                </div> -->
+            </div>
+          <?php else: ?>
+            <div class="aboutcontent">
+                <img src="<?php echo $about->pic[0]; ?>" alt="">
+                <?php echo $about->content_en; ?>
+                <!-- <div class="tit">
+                    About L&H Auction Co., Ltd.
+                </div>
+                <div class="txt">
+                    <p>
+Established in 2013, L&H Auction Co. Ltd. is a young yet fast-growing auctioneer based in Hong Kong. Its objective is to showcase a variety of antique items and prized collections to the wide public. L&H values fine objects from every culture and time period and strives to provide extraordinary services and opportunities for clients.<br><br>L&H held its first photographical auction in June 2013, focusing on the world’s rarest and finest antique cameras, the famous German Leica. During Spring Auction 2014, L&H has achieved a total of over HK$39 millions. Recording great successes in consecutive sales, L&H has soon become one of the most important auctioneers of vintage cameras in the world.<br><br>Witnessing the immense demand from collectors and antique lovers, L&H has developed its interest to other extensive specialty areas with connoisseurship and professionalism, including but not limited to Vintage Pu-er Tea, Classical Chinese Paintings, Agarwood and Qinan, Japanese Tea wares and Vessels, Wine and Spirits, Ceramics and other Chinese works of art. It created a record of HK$10 million for a tong of 100-year “Song Pin Hao” pu-er tea cake; and achieved a remarkable record of HK$38 million in the tea auction of Spring Auction 2017. While providing professional auction services, L&H actively fosters the cultural development and awareness. With the principle of “High Quality, High Value, High Integrity”, L&H offers high-quality collection and international expertise to create a unique platform for different collectors.<br><br>L&H holds 2 large-scale auctions in Hong Kong every year. Apart from inviting auctions, bids by phone, letters, faxes, and e-mails, bidders can also watch live broadcasts and participate in simultaneous auctions all over the world.
+                    </p>
+                </div> -->
+            </div>
+
+          <?php endif; ?>
+      </div>
+    </div>
+
+
+  </div>

@@ -1,0 +1,388 @@
+<style media="screen">
+.header{
+}
+
+</style>
+  <div class="mid" style="padding-bottom: 0px">
+      <div class="banner">
+          <!-- Swiper -->
+          <div class="swiper-container gallery-top" style="height:800px">
+              <div class="swiper-wrapper">
+              </div>
+              <!-- Add Arrows -->
+              <div class="swiper-button-next swiper-button-white"></div>
+              <div class="swiper-button-prev swiper-button-white"></div>
+          </div>
+      </div>
+
+
+<!-- /#home-slider -->
+    <div class="news">
+      <div class="wrap">
+        <?php if ($curLang === 'tc'): ?>
+        <div class="head">
+          <div class="tit"><a href="<?=$home?>press_release">最新動態</a></div>
+          <div class="more"><a href="<?=$home?>press_release">查看更多</a></div>
+        </div>
+        <div class="content">
+          <div class="pic">
+            <?php if(strpos($newcontent->pic,',')): ?>
+              <a href="<?=$home?>auction">
+                <img src="<?php echo strstr($newcontent->pic, ',', TRUE) ?>" alt="">
+              </a>
+            <?php else: ?>
+              <a href="<?=$home?>auction">
+                <img src="<?php echo $newcontent->pic ?>" alt="">
+              </a>
+            <?php endif; ?>
+          </div>
+          <div class="article">
+            <span class="tit"><?php echo $newcontent->name_tc; ?></span>
+            <p class="cont"><?php echo $newcontent->descript_tc?></p>
+            <span class="detail"><a href="<?=$home?>press_release">詳情</a></span>
+          </div>
+        </div>
+        <?php else: ?>
+          <div class="head">
+            <div class="tit"><a href="<?=$home?>press_release">NEWS</a></div>
+            <div class="more"><a href="<?=$home?>press_release">Read More</a></div>
+          </div>
+          <div class="content">
+            <div class="pic">
+                <?php if(strpos($newcontent->pic,',')): ?>
+                  <a href="<?=$home?>auction">
+                    <img src="<?php echo strstr($newcontent->pic, ',', TRUE) ?>" alt="">
+                  </a>
+                <?php else: ?>
+                  <a href="<?=$home?>auction">
+                    <img src="<?php echo $newcontent->pic ?>" alt="">
+                  </a>
+                <?php endif; ?>
+            </div>
+            <div class="article">
+              <span class="tit"><?php echo $newcontent->name_en; ?></span>
+              <p class="cont"><?php echo $newcontent->descript_en?></p>
+              <span class="detail"><a href="<?=$home?>press_release">DETAILS</a></span>
+            </div>
+          </div>
+        <?php endif; ?>
+
+      </div>
+    </div>
+    <div class="products">
+    <?php if ($curLang === 'tc'): ?>
+      <?php foreach ($indexpc as $items): ?>
+      <div class="product1">
+        <div class="wrap">
+          <div class="head">
+            <div class="tit"><a href="<?=$home?>catalogue?cid=<?php echo $items['clazz_id']?>"><?php echo $items['clazz']['name_tc'] ?></a></div>
+            <div class="more"><a href="<?=$home?>catalogue?cid=<?php echo $items['clazz_id']?>">查看更多</a></div>
+          </div>
+          <div class="item">
+            <div class="img">
+                <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc1']['id']?>">
+                    <?php if(substr($items['pic1'],0,8)==='/public/'): ?>
+                        <img style="width:290px" src="<?php echo $items['pic1'] ?>" alt="">
+                    <?php else:?>
+                        <img style="width:290px" src="<?php echo $items['pic1'] ?>" alt="">
+                    <?php endif;?>
+                </a>
+            </div>
+            <div class="detail">
+              <div class="name">
+                <?php echo $items['pc1']['title_tc']; ?>
+              </div>
+              <div class="lot">
+                LOT : <span class="no"><?php echo $items['pc1']['num']; ?></span>
+              </div>
+              <div class="estimated">
+                <?php if($items['pc1']['prize_tc']): ?>
+                  成交價（含佣金）：HK$ <span class="money"><?php echo $items['pc1']['prize_tc']; ?></span>
+                <?php else: ?>
+                  估計價格：HK$ <span class="money"><?php echo $items['pc1']['prize_en']; ?></span>
+                <?php endif; ?>
+              </div>
+              <div class="instruction">
+                <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc1']['id']?>">
+                    查看更多
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="img">
+                <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc2']['id']?>">
+                    <img style="width:290px" src="<?php echo $items['pic2'] ?>" alt="">
+                </a>
+            </div>
+            <div class="detail">
+              <div class="name">
+                <?php echo $items['pc2']['title_tc']; ?>
+              </div>
+              <div class="lot">
+                LOT : <span class="no"><?php echo $items['pc2']['num']; ?></span>
+              </div>
+              <div class="estimated">
+                <?php if($items['pc2']['prize_tc']): ?>
+                  成交價（含佣金）：HK$ <span class="money"><?php echo $items['pc2']['prize_tc']; ?></span>
+                <?php else: ?>
+                  估計價格：HK$ <span class="money"><?php echo $items['pc2']['prize_en']; ?></span>
+                <?php endif; ?>
+              </div>
+              <div class="instruction">
+                <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc2']['id']?>">
+                    查看更多
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="img">
+                <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc3']['id']?>">
+                    <img style="width:290px" src="<?php echo $items['pic3'] ?>" alt="">
+                </a>
+            </div>
+            <div class="detail">
+              <div class="name">
+                <?php echo $items['pc3']['title_tc']; ?>
+              </div>
+              <div class="lot">
+                LOT : <span class="no"><?php echo $items['pc3']['num']; ?></span>
+              </div>
+              <div class="estimated">
+                <?php if($items['pc3']['prize_tc']): ?>
+                  成交價（含佣金）：HK$ <span class="money"><?php echo $items['pc3']['prize_tc']; ?></span>
+                <?php else: ?>
+                  估計價格：HK$ <span class="money"><?php echo $items['pc3']['prize_en']; ?></span>
+                <?php endif; ?>
+              </div>
+              <div class="instruction">
+                <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc3']['id']?>">
+                    查看更多
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="img">
+                <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc4']['id']?>">
+                    <img style="width:290px" src="<?php echo $items['pic4'] ?>" alt="">
+                </a>
+            </div>
+            <div class="detail">
+              <div class="name">
+                <?php echo $items['pc4']['title_tc']; ?>
+              </div>
+              <div class="lot">
+                LOT : <span class="no"><?php echo $items['pc4']['num']; ?></span>
+              </div>
+              <div class="estimated">
+                <?php if($items['pc4']['prize_tc']): ?>
+                  成交價（含佣金）：HK$ <span class="money"><?php echo $items['pc4']['prize_tc']; ?></span>
+                <?php else: ?>
+                  估計價格：HK$ <span class="money"><?php echo $items['pc4']['prize_en']; ?></span>
+                <?php endif; ?>
+              </div>
+              <div class="instruction">
+                <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc4']['id']?>">
+                    查看更多
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    <?php else: ?>
+        <?php foreach ($indexpc as $items): ?>
+        <div class="product1">
+          <div class="wrap">
+            <div class="head">
+              <div class="tit"><a href="<?=$home?>catalogue?cid=<?php echo $items['clazz_id']?>"><?php echo $items['clazz']['name_en'] ?></a></div>
+              <div class="more"><a href="<?=$home?>catalogue?cid=<?php echo $items['clazz_id']?>">Read More</a></div>
+            </div>
+            <div class="item">
+              <div class="img">
+                  <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc1']['id']?>">
+                      <img style="width:290px" src="<?php echo $items['pic1'] ?>" alt="">
+                  </a>
+              </div>
+              <div class="detail">
+                <div class="name">
+                  <?php echo $items['pc1']['title_en']; ?>
+                </div>
+                <div class="lot">
+                  LOT : <span class="no"><?php echo $items['pc1']['num']; ?></span>
+                </div>
+                <div class="estimated">
+                  <?php if($items['pc1']['prize_tc']): ?>
+                    PRICE (included premium):<br>HK$ <span class="money"><?php echo $items['pc1']['prize_tc']; ?></span>
+                  <?php else: ?>
+                    ESTIMATE PRICE：<br>HK$ <span class="money"><?php echo $items['pc1']['prize_en']; ?></span>
+                  <?php endif; ?>
+                </div>
+                <div class="instruction">
+                  <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc1']['id']?>">
+                      Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img">
+                  <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc2']['id']?>">
+                      <img style="width:290px" src="<?php echo $items['pic2'] ?>" alt="">
+                  </a>
+              </div>
+              <div class="detail">
+                <div class="name">
+                  <?php echo $items['pc2']['title_en']; ?>
+                </div>
+                <div class="lot">
+                  LOT : <span class="no"><?php echo $items['pc2']['num']; ?></span>
+                </div>
+                <div class="estimated">
+                  <?php if($items['pc2']['prize_tc']): ?>
+                    PRICE (included premium):<br>HK$ <span class="money"><?php echo $items['pc2']['prize_tc']; ?></span>
+                  <?php else: ?>
+                    ESTIMATE PRICE：<br>HK$ <span class="money"><?php echo $items['pc2']['prize_en']; ?></span>
+                  <?php endif; ?>
+                </div>
+                <div class="instruction">
+                  <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc2']['id']?>">
+                      Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img">
+                  <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc3']['id']?>">
+                      <img style="width:290px" src="<?php echo $items['pic3'] ?>" alt="">
+                  </a>
+              </div>
+              <div class="detail">
+                <div class="name">
+                  <?php echo $items['pc3']['title_en']; ?>
+                </div>
+                <div class="lot">
+                  LOT : <span class="no"><?php echo $items['pc3']['num']; ?></span>
+                </div>
+                <div class="estimated">
+                  <?php if($items['pc3']['prize_tc']): ?>
+                    PRICE (included premium):<br>HK$ <span class="money"><?php echo $items['pc3']['prize_tc']; ?></span>
+                  <?php else: ?>
+                    ESTIMATE PRICE：<br>HK$ <span class="money"><?php echo $items['pc3']['prize_en']; ?></span>
+                  <?php endif; ?>
+                </div>
+                <div class="instruction">
+                  <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc3']['id']?>">
+                      Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="img">
+                  <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc4']['id']?>">
+                      <img style="width:290px" src="<?php echo $items['pic4'] ?>" alt="">
+                  </a>
+              </div>
+              <div class="detail">
+                <div class="name">
+                  <?php echo $items['pc4']['title_en']; ?>
+                </div>
+                <div class="lot">
+                  LOT : <span class="no"><?php echo $items['pc4']['num']; ?></span>
+                </div>
+                <div class="estimated">
+                  <?php if($items['pc4']['prize_tc']): ?>
+                    PRICE (included premium):<br>HK$ <span class="money"><?php echo $items['pc4']['prize_tc']; ?></span>
+                  <?php else: ?>
+                    ESTIMATE PRICE：<br>HK$ <span class="money"><?php echo $items['pc4']['prize_en']; ?></span>
+                  <?php endif; ?>
+                </div>
+                <div class="instruction">
+                  <a href="<?=$home?>catalogue/detail?id=<?php echo $items['pc4']['id']?>">
+                      Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+    </div>
+</div>
+    <!-- <div class="tit"><a href="">鑾器天香<div class="all-tit">·茶道.香道.花器專場【完整圖錄】</div></a></div> -->
+<!-- <script src="<?php echo $resource_url; ?>js/swiper.min.js"></script> -->
+<script type="text/javascript">
+$(document).ready(function(){
+    // $('.header').mouseover(function(){
+    //     $(this).css('background-color','white');
+    // })
+    $('.header').mouseleave(function(){
+        // $(this).css('background-color','rgba(0,0,0,0)');
+        $('.sub-nav').removeClass('hover');
+        $('.navi').removeClass('hover');
+    })
+
+// 背景图片
+    var bg1 = '<?php echo $indexbg['list'][0]['pic'];?>';
+    if(bg1){
+
+        $('.products .product1:nth-child(1)').css('background-image', 'url('+bg1+')');
+    }
+    var bg2 = '<?php echo $indexbg['list'][1]['pic'];?>';
+    if(bg2){
+        $('.products .product1:nth-child(2)').css('background-image', 'url('+bg2+')');
+    }
+    var bg3 = '<?php echo $indexbg['list'][2]['pic'];?>';
+    if(bg3){
+        // var h3 = $('.products .product1:nth-child(3)').css('height');
+        // console.log(h3);
+        // $('.products .product1:nth-child(3)').css('height', );
+        $('.products .product1:nth-child(3)').css('background-image', 'url('+bg3+')');
+    }
+
+
+// 动画效果脚本
+    var a,b,c;
+    a=$(window).height();
+    b=$(window).scrollTop();
+    if(b>0){
+        $(".product1 .item").each(function(){
+            c=$(this).offset().top;
+            if(a+b>c){
+                $(this).addClass("move");
+            }
+        })
+    }
+    $(window).scroll(function(){
+        var a=$(window).height();
+        var b=$(this).scrollTop();
+        $(".product1 .item").each(function(){
+            c=$(this).offset().top;
+            if(a+b>c){
+                $(this).addClass("move");
+            }
+            else{
+
+            }
+        });
+    });
+// 省略文本脚本
+    $('.product1 .instruction p').each(function(){
+        var maxwidth=110;
+        if($(this).text().length > maxwidth){
+          $(this).text($(this).text().substring(0,maxwidth));
+          $(this).html($(this).html()+'...');
+        }
+    })
+});
+
+</script>
+
+<script src="<?php echo $resource_url; ?>js/swiper.min.js" charset="utf-8"></script>
+<script src="<?php echo $resource_url; ?>js/wap.js" charset="utf-8"></script>

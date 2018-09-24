@@ -1,0 +1,125 @@
+<style media="screen">
+.mid .menu {
+      font-family: '微软雅黑' !important;
+  }
+</style>
+  <div class="mid" style="height:auto">
+    <div class="bottom">
+      <div class="locate wrap">
+        <span class="content"><?=$navi5?> > <?=$subnavi5?></span>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="menu <?=$curLang?>">
+        <div class="nav press_release">
+          <div class="tit">
+            <?=$subnavi5?>
+          </div>
+          <div class="sub-nav">
+              <?php if ($curLang === 'tc'): ?>
+                <?php foreach ($submenu as $sub): ?>
+                    <div class="sub-tit" data-id="<?=$sub['id']?>"><a href="<?=$home?>press_release?id=<?=$sub['id']?>"><?php echo $sub['name_tc']?></a></div>
+                <?php endforeach; ?>
+              <?php else: ?>
+                <?php foreach ($submenu as $sub): ?>
+                    <div class="sub-tit" data-id="<?=$sub['id']?>"><a href="<?=$home?>press_release?id=<?=$sub['id']?>"><?php echo $sub['name_en']?></a></div>
+                <?php endforeach; ?>
+              <?php endif; ?>
+          </div>
+        </div>
+        <div class="nav press_media">
+          <div class="tit">
+            <a href="press_media">
+              <?=$subnavi6?>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container3 <?=$curLang?>">
+        <?php if ($curLang === 'tc'): ?>
+          <?php foreach ($searchNews['list'] as $k=>$new): ?>
+            <?php if ($k==0): ?>
+                <div class="release item" style="border-top:1px solid #ddd">
+                <?php else: ?>
+                <div class="release item">
+            <?php endif; ?>
+            <?php if($new['cover_thumb']):?>
+              <div class="pic">
+                <a href="<?=$home?>press_release/detail?id=<?=$new['id']?>">
+                    <img src="<?php echo $new['cover_thumb'] ?>" alt="">
+                </a>
+              </div>
+              <div class="detail">
+                  <div class="date">
+                      <?php echo date('y-m-d',$new['create_time']) ?>
+                  </div>
+                  <div class="tit">
+                      <a href="<?=$home?>press_release/detail?id=<?=$new['id']?>">
+                          <?php echo $new['title_tc'] ?>
+                      </a>
+                  </div>
+              </div>
+          <?php else:?>
+              <div class="detail" style="width:100%">
+                  <div class="tit2">
+                      <a href="<?=$home?>press_release/detail?id=<?=$new['id']?>">
+                          <?php echo $new['title_tc'] ?>
+                      </a>
+                  </div>
+                  <div class="date2">
+                      <?php echo date('y-m-d',$new['create_time']) ?>
+                  </div>
+              </div>
+          <?php endif;?>
+            </div>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <?php foreach ($searchNews['list'] as $k=>$new): ?>
+              <?php if ($k==0): ?>
+                  <div class="release item" style="border-top:1px solid #ddd">
+                  <?php else: ?>
+                  <div class="release item">
+              <?php endif; ?>
+                <?php if($new['cover_thumb']):?>
+                  <div class="pic">
+                    <a href="<?=$home?>press_release/detail?id=<?=$new['id']?>">
+                        <img src="<?php echo $new['cover_thumb'] ?>" alt="">
+                    </a>
+                  </div>
+                  <div class="detail">
+                      <div class="date">
+                          <?php echo date('y-m-d',$new['create_time']) ?>
+                      </div>
+                      <div class="tit">
+                          <a href="<?=$home?>press_release/detail?id=<?=$new['id']?>">
+                              <?php echo $new['title_en'] ?>
+                          </a>
+                      </div>
+                  </div>
+              <?php else:?>
+                  <div class="detail" style="width:100%">
+                      <div class="tit2">
+                          <a href="<?=$home?>press_release/detail?id=<?=$new['id']?>">
+                              <?php echo $new['title_en'] ?>
+                          </a>
+                      </div>
+                      <div class="date2">
+                          <?php echo date('y-m-d',$new['create_time']) ?>
+                      </div>
+                  </div>
+              <?php endif;?>
+            </div>
+          <?php endforeach; ?>
+        <?php endif;?>
+        <div id="pagelist">
+          <ul>
+            <?php echo $this->pagination->create_links();?>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+<script src="<?php echo $resource_url; ?>js/press_release.js" charset="utf-8"></script>
