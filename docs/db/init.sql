@@ -2,8 +2,8 @@
 -- 数据库: `curio`
 --
 set names utf8;
-create database `curio`;
-use `curio`;
+create database `curio2`;
+use `curio2`;
 
 -- --------------------------------------------------------
 

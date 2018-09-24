@@ -17,7 +17,7 @@
 if($_SERVER['HTTP_HOST']=='dev.curio.com') {
     $config['base_url'] = 'http://dev.curio.com/';
 } else {
-    $config['base_url'] = 'http://abc.shegurz.com/';
+    $config['base_url'] = 'http://test.shegurz.com/';
 }
 
 /*
