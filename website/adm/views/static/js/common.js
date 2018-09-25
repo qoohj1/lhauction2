@@ -1,7 +1,7 @@
 $(function() {
     config = {
-        apiServer: document.domain=='dev.curio.com' ? 'http://dev.curio.com/adm/' : 'http://abc.shegurz.com/adm/',
-        resServer: document.domain=='dev.curio.com' ? 'http://dev.curio.com/application/views/static/' : 'http://abc.shegurz.com/application/views/static/'
+        apiServer: document.domain=='dev.curio.com' ? 'http://dev.curio.com/adm/' : 'http://test.shegurz.com/adm/',
+        resServer: document.domain=='dev.curio.com' ? 'http://dev.curio.com/application/views/static/' : 'http://test.shegurz.com/application/views/static/'
     };
     Utils = {
         // 请求数据公用方法
