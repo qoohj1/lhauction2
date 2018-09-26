@@ -53,8 +53,23 @@ server {
 ## 开启php－fpm
 - php-fpm -D
 
-## 配置mysql
+## 配置mysql及数据库
 - source docs/db/init2.sql
+
+-website/www/config/database.php
+```
+if($_SERVER['HTTP_HOST']=='dev.curio.com') {
+    $db['default']['hostname'] = 'dev.curio.com:3306';
+    $db['default']['username'] = 'root';
+    $db['default']['password'] = '';
+    $db['default']['database'] = 'curio';
+} else {
+    $db['default']['hostname'] = '127.0.0.1:3306';
+    $db['default']['username'] = 'root';
+    $db['default']['password'] = '';
+    $db['default']['database'] = 'curio2';
+}
+```
 
 ## 配置服务器ip
 - website/www/config/config.php
@@ -66,3 +81,7 @@ server {
 - website/adm/views/static/js/common.js
 - website/www/views/static/js/common.js
 - 修改 apiServer／resServer域名／ip
+
+
+如果遇到Unable to load the requested language file: language/en/db_lang.php这种情况
+请查看数据库是否正常导入，请移步配置mysql及配置数据库用户配置是否正确
