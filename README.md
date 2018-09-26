@@ -1,3 +1,10 @@
+ # INSTALL
+## 配置nginx
+## Create virtual host
+
+Rederence `docs/nginx.conf`. Here is the virtual host configure for me:
+
+```
 server {
    listen       80;
    server_name  test.shegurz.com;
@@ -41,3 +48,21 @@ server {
        include        fastcgi_params;
    }
 }
+
+```
+## 开启php－fpm
+- php-fpm -D
+
+## 配置mysql
+- source docs/db/init2.sql
+
+## 配置服务器ip
+- website/www/config/config.php
+- $config[‘base_url’] = ‘your domain’
+- website/adm/config/config.php
+- $config[‘base_url’] = ‘your domain’
+
+## 配置api及请求域名／ip路径
+- website/adm/views/static/js/common.js
+- website/www/views/static/js/common.js
+- 修改 apiServer／resServer域名／ip
